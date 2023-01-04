@@ -34,7 +34,7 @@ The command removes all the Kubernetes components associated with the chart and 
 |------------------------|------------------------------------------|-----------------|
 | `nameOverride`         | Name override                            | `stonedb`       |
 | `replicaCount`         | Number of nodes                          | `1`             |
-| `image.repository`     | Imgage repository                        | `redash/redash` |
+| `image.repository`     | Imgage repository                        | `stoneatom/stonedb` |
 | `image.tag`            | Image tag                                | `latest`        |
 | `image.pullPolicy`     | Image pull policy                        | `IfNotPresent`  
 | `image.pullSecret`     | Image pull Secret                        | 
