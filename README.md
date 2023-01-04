@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```console
-$ helm repo add my-repo https://artifacthub.io/charts/StoneDB
+$ helm repo add my-repo https://stoneatom.github.io/stonedb-helm
 $ helm install my-release my-repo/stonedb-helm
 ```
 
