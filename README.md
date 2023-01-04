@@ -5,7 +5,8 @@
 ## TL;DR;
 
 ```console
-$ helm install stable/stonedb-helm
+$ helm repo add my-repo https://artifacthub.io/charts/StoneDB
+$ helm install my-release my-repo/stonedb-helm
 ```
 
 ## Install
@@ -13,7 +14,7 @@ $ helm install stable/stonedb-helm
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install --name my-release stable/stonedb-helm
+$ helm install my-release my-repo/stonedb-helm
 ```
 
 ## Uninstall
@@ -31,7 +32,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Parameter              | Description                              | Default         |
 |------------------------|------------------------------------------|-----------------|
-| `nameOverride`         | Name override                            | `Name`          |
+| `nameOverride`         | Name override                            | `stonedb`       |
 | `replicaCount`         | Number of nodes                          | `1`             |
 | `image.repository`     | Imgage repository                        | `redash/redash` |
 | `image.tag`            | Image tag                                | `latest`        |

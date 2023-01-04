@@ -18,8 +18,10 @@ spec:
       labels:
         {{- include "stonedb-helm.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if ne .Values.image.pullSecret "" }}
       imagePullSecrets:
       - name: {{ .Values.image.pullSecret }}
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -44,9 +46,19 @@ spec:
           livenessProbe:
             tcpSocket:
               port: mysql
+            initialDelaySeconds: 100
+            periodSeconds: 20
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
           readinessProbe:
             tcpSocket:
               port: mysql
+            initialDelaySeconds: 100
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
