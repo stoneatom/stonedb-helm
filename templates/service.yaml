@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "stonedb-helm.fullname" . }}-svc
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "stonedb-helm.labels" . | nindent 4 }}
 spec:
