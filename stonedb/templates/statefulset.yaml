@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "stonedb-helm.fullname" . }}-sts
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "stonedb-helm.labels" . | nindent 4 }}
 spec:
